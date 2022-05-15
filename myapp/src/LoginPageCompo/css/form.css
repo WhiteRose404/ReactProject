@@ -1,0 +1,26 @@
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+h1{
+    margin: 20px 0 ;
+}
+
+button{
+    max-width: 100px;
+}
+
+.BigScreen{
+    max-width: 80%;
+}
+
+.SmallScreen{
+    max-width: 60%;
+    margin: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    opacity: 0.5;
+}
