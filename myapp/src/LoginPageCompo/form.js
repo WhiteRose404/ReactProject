@@ -6,7 +6,7 @@ function form(){
         <form action="#">
             <h1>Sign in</h1>
             <p className="BigScreen">Please enter your email address and passowrd bellow.</p>
-            <p className="SmallScreen">if you have any issues please <a href="#">contact us</a>.</p>
+            <p className="SmallScreen">if you have any issues please <a href="https://www.google.com">contact us</a>.</p>
             <Epaswd />
             <button class="btn">Sign In</button>
         </form>

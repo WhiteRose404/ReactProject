@@ -1,0 +1,53 @@
+main{
+    margin: 5px;
+    display: flex;
+    font-family: sans-serif;
+    gap: 2%;
+}
+
+main section{
+    border-radius: 15px;
+    min-height: 500px;
+    background-color: #f7f8f8;
+}
+
+main section h2{
+    padding: 15px;
+    text-align: center;
+}
+
+.news .items{
+    display: flex;
+    max-width: 300px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.box {
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+
+.happy{
+    color: green;
+    border: 2px solid lightgreen;
+}
+.sad{
+    color: red;
+    border: 2px dotted red;
+}
+
+.normal{
+    color: black;
+    border: 2px solid #000000;
+}
+
+.Space{
+    
+    width: 100%;
+}

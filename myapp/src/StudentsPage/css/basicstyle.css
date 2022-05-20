@@ -1,0 +1,8 @@
+body{
+    background-color: azure;
+}
+
+a:hover,a{
+    color: inherit;
+    text-decoration: none;
+}
