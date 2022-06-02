@@ -16,7 +16,7 @@ main section h2{
     text-align: center;
 }
 
-.news .items{
+.State .items{
     display: flex;
     max-width: 300px;
     flex-flow: column nowrap;
@@ -47,7 +47,13 @@ main section h2{
     border: 2px solid #000000;
 }
 
-.Space{
-    
+.Space{   
     width: 100%;
+}
+
+.subject {
+    padding: 5px;
+    text-align: center;
+    border-radius: 15px;
+    width: fit-content;
 }

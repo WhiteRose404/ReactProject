@@ -1,38 +1,57 @@
-import React from "react"
+import React, { Component } from "react"
+import Subelement from "./Elements"
 import "./css/studentStuff.css"
 
+class studentStuff extends Component{
+    constructor(props){
+        super();
+        this.state = {
+            subject:[{
+                name: "Loading",
+                id: "Loading"
+            }],
+            major:{
+                title: "Loading",
+                description: "Loading",
+                id:-1
+            }
+        };
+        fetch(`http://104.196.116.136/api/majors/${props.id}`).then((a)=>a.json()).then(a => {
+            this.setState({
+                subject:this.state.subject,
+                major: a
+            });
 
-let studentStuff = () => {
-    return (
-        <main>
-            <section className="news">
-                <h2>News</h2>
-                <div className="items">
-                    <div className="box happy">
-                        <p>The Exam has postpond</p>
+        });
+        fetch(`http://104.196.116.136/api/subjects`).then((a)=>a.json()).then(a => {
+            const subj = a.filter(element => element.major==props.id).map(element=>{return {name: element.name,id: element.id}});
+            this.setState({
+                subject: subj,
+                major: this.state.major
+            });
+        });
+    }
+    
+    render(){
+        console.log(this.state.subject)
+        return (
+            <main>
+                <section className="State">
+                    <h2>State</h2>
+                    <div className="items">
+                        <div className="box">
+                            <div>Master <div className="box happy">{this.state.major.title}</div></div>
+                        </div>
+                        <div className="box">
+                            <div>Description <div className="box sad">{this.state.major.description}</div></div>
+                        </div>
                     </div>
-                    <div className="box sad">
-                        <p>Kolxi ratt</p>
-                    </div>
-                    <div className="box sad">
-                        <p>Exam Reseau </p>
-                    </div>
-                    <div className="box happy">
-                        <p>The Exam has postpond</p>
-                    </div>
-                    <div className="box normal">
-                        <p>The result is available</p>
-                    </div>
-                    <div className="box sad">
-                        <p>kolxi ratt</p>
-                    </div>
-                </div>
-            </section>
-            <section className="Space">
-                <h2>Explore</h2>
-            </section>
-        </main>
-    )
-};
-
+                </section>
+                <section className="Space">
+                    <h2>Subjects</h2>
+                </section>
+            </main>
+        )
+    }
+}
 export default studentStuff;

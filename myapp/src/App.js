@@ -16,7 +16,7 @@ function App() {
   let studentsPage = (
       <div>
         <Header />
-        <StudentStuff />
+        <StudentStuff id="1"/>
         <Footer />
       </div>
   )
