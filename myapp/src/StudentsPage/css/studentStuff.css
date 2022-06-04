@@ -16,6 +16,10 @@ main section h2{
     text-align: center;
 }
 
+.State{
+    flex: 100 1 auto;
+}
+
 .State .items{
     display: flex;
     max-width: 300px;
@@ -42,13 +46,21 @@ main section h2{
     /*border: 2px dotted red;*/
 }
 
-.Space{   
-    width: 100%;
+.Space{
+    flex: 1 100 auto;
+}
+
+.Space{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
 }
+
+
+
+
+
 .Subject{
     background-color: #eff5ff;
     display: grid;
