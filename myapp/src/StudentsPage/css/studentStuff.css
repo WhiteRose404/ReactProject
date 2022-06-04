@@ -35,25 +35,50 @@ main section h2{
 
 .happy{
     color: green;
-    border: 2px solid lightgreen;
+    /*border: 2px solid lightgreen;*/
 }
 .sad{
     color: red;
-    border: 2px dotted red;
-}
-
-.normal{
-    color: black;
-    border: 2px solid #000000;
+    /*border: 2px dotted red;*/
 }
 
 .Space{   
     width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Subject{
+    background-color: #eff5ff;
+    display: grid;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    justify-content: center;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    max-width: fit-content;
+    max-height: fit-content;
+    padding: 15px;
+}
+.Subject .Header{
+    font-size: 2rem;
+    text-transform: uppercase;
+    grid-row: 1;
+    grid-column:2; 
+    text-align: center;
 }
 
-.subject {
-    padding: 5px;
-    text-align: center;
+.Subject .Options1 , .Subject .Options2{
+    grid-row: 2;
+    border: 2px solid gray;
     border-radius: 15px;
-    width: fit-content;
+    padding: 3px;
+}
+.Subject .Options1{
+    grid-row: 2;
+    grid-column:1;
+}
+.Subject .Options2{
+    grid-column:3; 
 }

@@ -5,6 +5,7 @@ import Form from "./LoginPageCompo/form"
 import Header from "./StudentsPage/header"
 import Footer from "./StudentsPage/footer"
 import StudentStuff from "./StudentsPage/studentStuff"
+import TeacherStuff from "./TeacherPage/teacherstuff"
 
 function App() {
   let loginPage = (
@@ -17,6 +18,13 @@ function App() {
       <div>
         <Header />
         <StudentStuff id="1"/>
+        <Footer />
+      </div>
+  )
+  let teacherPager = (
+      <div>
+        <Header />
+        <TeacherStuff />
         <Footer />
       </div>
   )

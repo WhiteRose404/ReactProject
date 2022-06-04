@@ -24,7 +24,7 @@ class studentStuff extends Component{
 
         });
         fetch(`http://104.196.116.136/api/subjects`).then((a)=>a.json()).then(a => {
-            const subj = a.filter(element => element.major==props.id).map(element=>{return {name: element.name,id: element.id}});
+            const subj = a.filter(element => element.major===props.id).map(element=>{return {name: element.name,id: element.id}});
             this.setState({
                 subject: subj,
                 major: this.state.major
@@ -48,10 +48,21 @@ class studentStuff extends Component{
                     </div>
                 </section>
                 <section className="Space">
-                    <h2>Subjects</h2>
+                    <div className="Subject">
+                        <div className="Header">
+                            Proba
+                        </div>
+                        <div className="Options1">
+                            Grades
+                        </div>
+                        <div className="Options2">
+                            Latest
+                        </div>
+                    </div>
                 </section>
             </main>
         )
+        // add the subject automatically
     }
 }
 export default studentStuff;

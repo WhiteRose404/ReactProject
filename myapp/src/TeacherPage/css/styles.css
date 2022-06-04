@@ -1,0 +1,18 @@
+.Container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: monospace;
+}
+.item{
+    background-color: #ffffdf;
+    max-width: 10%;
+    height: fit-content;
+    text-align: center;
+    transition: ease-in-out 0.5s;
+    font-family: inherit;
+}
+
+.item:hover{
+    transform: scale(1.2)
+}
