@@ -15,4 +15,9 @@ header ul{
 
 header ul .logo{
     margin-right: auto;
+    margin-left: 3%;
+}
+
+img{
+    max-width: 100px;
 }

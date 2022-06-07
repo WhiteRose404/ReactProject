@@ -16,13 +16,10 @@ main section h2{
     text-align: center;
 }
 
-.State{
-    flex: 100 1 auto;
-}
+
 
 .State .items{
     display: flex;
-    max-width: 300px;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
@@ -46,15 +43,13 @@ main section h2{
     /*border: 2px dotted red;*/
 }
 
-.Space{
-    flex: 1 100 auto;
-}
 
 .Space{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
+    flex:1 1 auto;
 }
 
 
@@ -93,4 +88,24 @@ main section h2{
 }
 .Subject .Options2{
     grid-column:3; 
+}
+
+
+
+
+/* Event class's */
+
+
+.State, .Space{
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+
+.gobig{
+    flex: 100 1 auto;
+}
+.gosmall{
+    font-size: xx-small;
+    flex: 1 100 0;
+    opacity: 50%;
 }

@@ -6,6 +6,8 @@
 }
 .item{
     background-color: #ffffdf;
+    padding: 10px;
+    border-radius: 15px;
     max-width: 10%;
     height: fit-content;
     text-align: center;
@@ -15,4 +17,19 @@
 
 .item:hover{
     transform: scale(1.2)
+}
+
+.Form{
+    margin: 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.Form *{
+    margin: 2px;
+    padding: 5px;
+}
+.Form button:last-child{
+    margin-top: 10%;
 }
