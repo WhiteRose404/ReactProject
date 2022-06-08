@@ -31,12 +31,22 @@ class header extends Component{
     render(){
         return (
             <header>
-                <ul>
+                <ul className="wideScreen">
                     <li className="logo"><img src="https://www.lamsade.dauphine.fr/~isco/ISCO2018/sites/default/files/ensias-logo.png"/></li>
                     <li><a href="school">School</a></li>
-                    <li><a href="https://drive.google.com/drive/folders/14zbYKkzRfK8NrXsHrO9BWpYiGtCyL0F-">Drive</a></li>
+                    <li><a href="">Drive</a></li>
                     <li>Account</li>
                 </ul>
+                <div className="smallScreen">
+                    <img src="https://www.lamsade.dauphine.fr/~isco/ISCO2018/sites/default/files/ensias-logo.png"/>
+                    <select>
+                        <option><a href="school">School</a></option>
+                        <option><a href="">Drive</a></option>
+                        <option>Account</option>
+                    </select>
+                </div>
+
+                
             </header>
         )
     }

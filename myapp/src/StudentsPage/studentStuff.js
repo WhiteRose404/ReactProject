@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import Subelement from "./Elements"
 import "./css/studentStuff.css"
-import element from "./Elements";
 
 class studentStuff extends Component{    
     state = {
@@ -12,7 +10,7 @@ class studentStuff extends Component{
             email:"Loading",
             major: -1
         },
-        subject:[], //need the name and id booth
+        subject:[], // List of objects {name, id}
         major:{
             title: "Loading",
             description: "Loading",
@@ -25,61 +23,102 @@ class studentStuff extends Component{
         this.props = props;
         // this.clicked = props.clicked; DEAD END
         // this.AddClass = this.AddClass.bind(this);
+        // this.successRender = this.successRender.bind(this);
+        this.events = this.events.bind(this);
+        this.SubjectLister = this.SubjectLister.bind(this);
     }
     // AddClass(){
     //     const section = document.querySelector(".State");
     //     this.clicked ? section.classList.add("gobig") : section.classList.remove("gobig");
     // } DEAD END
-    componentDidMount(){
-        console.log(this.props.id)
+    
+    
+    // fetch the data from the back end
+    successRender(){
         fetch(`http://104.196.116.136/api/register/`).then(a => a.json()).then( a=>{
             this.setState({
                 student: a[this.props.id],
                 subject:this.state.subject,
                 major: this.state.major
             });
+            console.log(a)
             this.FetchTheData(a[this.props.id].major);
+        }).catch((a)=>{
+            this.setState({
+                student: {
+                    id: -1,
+                    firstname:"Spooted",
+                    lastname:"Spooted",
+                    email:"hesspress@gmail.com",
+                    major: 0
+                },
+                subject: ["Hacker"],
+                major: {
+                    title: "Imposter",
+                    description: "Wait a minute Who are U",
+                    id:-1
+                }
+            });
         });
     }
-    SubjectLister(subjectName){
-        return (
-            <div className="Subject">
-                <div className="Header">
-                    {subjectName}
-                </div>
-                <div className="Options1">
-                    Grades
-                </div>
-                <div className="Options2">
-                    Latest
-                </div>
-            </div>
-        )
-    }
+    // (Due the structer of database need to changes)
+    // fetch the rest of the data Major and subjects 
     FetchTheData(major){
-        console.log(major)
         fetch(`http://104.196.116.136/api/majors/${major}`).then((a)=>a.json()).then(a => {
             this.setState({
-                student:this.state.student,
-                subject:this.state.subject,
+                student: this.state.student,
+                subject: this.state.subject,
                 major: a
             });
         });
         fetch(`http://104.196.116.136/api/subjects`).then((a)=>a.json()).then(a => {
-            const subj = a.filter(element => element.major==major).map(element => element.name);
+            const subj = a.filter(element => element.major==major).map(element =>{
+                return {name: element.name, id: element.id}
+            });
             this.setState({
-                student:this.state.student,
+                student: this.state.student,
                 subject: subj,
                 major: this.state.major
             });
         });
     }
+
+    // Listen to user clicked (grades)
+    // UNCOMPLET
+    events(e){
+        alert(`So creative id of the subject is ${e.target.dataset.id}`);
+    }
+    // List the subjects
+    // Git rid of Record Option
+    SubjectLister(subjectName){
+        return (
+            <div className="Subject">
+                <div className="Header">
+                    {subjectName.name}
+                </div>
+                <div className="Options1" onClick={this.events} data-id={subjectName.id}>
+                    Grade
+                </div>
+                <div className="Options2">
+                    Record
+                </div>
+            </div>
+        )
+    }
+    // after the com has moount fetch the user data
+    componentDidMount(){
+        this.successRender();
+    }
+    // BRUH
     render(){
         return (
             <main>
-                <section className="State">
+                <section className="State" >
                     <h2>State</h2>
-                    <div className="items">
+                    <div className="items" >
+                        <div className="box">
+                            <div>Last Name <div className="box normal">{this.state.student.lastname} </div></div>
+                        </div>
                         <div className="box">
                             <div>Master <div className="box happy">{this.state.major.title}</div></div>
                         </div>

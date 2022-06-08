@@ -27,7 +27,7 @@ main section h2{
 }
 
 .box {
-    padding: 5px;
+    margin: 5px;
     text-align: center;
     border-radius: 15px;
     width: fit-content;
@@ -36,6 +36,11 @@ main section h2{
 
 .happy{
     color: green;
+    /*border: 2px solid lightgreen;*/
+}
+.normal{
+    text-align: inherit;
+    color: #FAAf01;
     /*border: 2px solid lightgreen;*/
 }
 .sad{
@@ -108,4 +113,11 @@ main section h2{
     font-size: xx-small;
     flex: 1 100 0;
     opacity: 50%;
+}
+
+@media screen and (max-width: 542px) {
+    .State{
+        display: none;
+    }
+    
 }

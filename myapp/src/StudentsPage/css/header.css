@@ -3,7 +3,7 @@ header{
     background-color: #E0E4E0;
 }
 
-header ul{
+header .wideScreen{
     font-family: fantasy;
     font-size: 1.5rem;
     padding: 15px;
@@ -12,12 +12,39 @@ header ul{
     gap: 30px;
     list-style-type: none;
 }
+header .smallScreen{
+    display: none;
+}
 
-header ul .logo{
+header .wideScreen .logo{
     margin-right: auto;
     margin-left: 3%;
 }
 
 img{
     max-width: 100px;
+}
+
+
+@media screen and (max-width: 400px) {        
+    header .wideScreen{
+        display: none;
+    }
+    header .smallScreen{
+        display: flex;
+    }
+    .smallScreen select{
+        font-size: 1rem;
+        padding: 15px;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+        background-color: inherit;
+    }
+    .smallScreen img{
+        margin-right: auto;
+        margin-left: 3%;
+        max-width: 20%;
+        padding: 10px;
+    }
 }

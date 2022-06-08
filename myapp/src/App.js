@@ -12,27 +12,28 @@ class myApp extends Component{
   constructor(){
     super();
   }
-
-
   state = {
     DisplayAccount: 0,
-    userID: "0",
+    userID: "3",
   }
-  
   updateTheState = (msg) => {
     this.setState({
       DisplayAccount:msg
     })
   }
-
+  changeUser = (e)=>{
+    this.setState({
+      userID: e.target.value
+    });
+  }
   render(){
+    console.log("Rendring...",this.state)
     let loginPage = (
-        <div className="Container">
+        <div className="ContainerLogin">
               <Img />
               <Form />
         </div>
     );
-
     let studentsPage = (
         <div>
           <Header PullData={this.updateTheState}/>
