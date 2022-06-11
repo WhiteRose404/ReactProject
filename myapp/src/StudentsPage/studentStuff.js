@@ -15,7 +15,8 @@ class studentStuff extends Component{
             title: "Loading",
             description: "Loading",
             id:-1
-        }
+        },
+        Online: true
     };
     // clicked = 0;
     constructor(props){
@@ -45,19 +46,7 @@ class studentStuff extends Component{
             this.FetchTheData(a[this.props.id].major);
         }).catch((a)=>{
             this.setState({
-                student: {
-                    id: -1,
-                    firstname:"Spooted",
-                    lastname:"Spooted",
-                    email:"hesspress@gmail.com",
-                    major: 0
-                },
-                subject: ["Hacker"],
-                major: {
-                    title: "Imposter",
-                    description: "Wait a minute Who are U",
-                    id:-1
-                }
+                Online: false
             });
         });
     }
@@ -111,24 +100,45 @@ class studentStuff extends Component{
     }
     // BRUH
     render(){
+        let State = (
+            <div className="items" >
+                <div className="box">
+                    <div>Last Name <div className="box normal">{this.state.student.lastname} </div></div>
+                </div>
+                <div className="box">
+                    <div>Master <div className="box happy">{this.state.major.title}</div></div>
+                </div>
+                <div className="box">
+                    <div>More Like <div className="box sad">{this.state.major.description}</div></div>
+                </div>
+            </div>    
+        );
+        let ErrorState = (
+            <div className="items" >
+                <div className="box">
+                    <div>Check Your Connection <div className="box sad">Unable to fetch</div></div>
+                </div>
+            </div>
+        )
+        let Space = this.state.subject.map(this.SubjectLister);
+        let ErrorSpace = (
+            <div className="Subject">
+                <div className="Header">
+                    <img src="https://gifimage.net/wp-content/uploads/2018/04/kermit-the-frog-freaking-out-gif-7.gif" />
+                </div>
+                <div className="Header">
+                    Mxi dapa
+                </div>
+            </div>
+        )
         return (
             <main>
                 <section className="State" >
                     <h2>State</h2>
-                    <div className="items" >
-                        <div className="box">
-                            <div>Last Name <div className="box normal">{this.state.student.lastname} </div></div>
-                        </div>
-                        <div className="box">
-                            <div>Master <div className="box happy">{this.state.major.title}</div></div>
-                        </div>
-                        <div className="box">
-                            <div>More Like <div className="box sad">{this.state.major.description}</div></div>
-                        </div>
-                    </div>
+                    {this.state.Online? State : ErrorState}
                 </section>
                 <section className="Space">
-                    {this.state.subject.map(this.SubjectLister)}
+                    {this.state.Online? Space : ErrorSpace}
                 </section>
             </main>
         )
