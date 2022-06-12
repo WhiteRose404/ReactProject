@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom";
 import "./css/studentStuff.css"
 
 class studentStuff extends Component{    
@@ -81,7 +82,7 @@ class studentStuff extends Component{
     // Git rid of Record Option
     SubjectLister(subjectName){
         return (
-            <div className="Subject">
+            <Link to={`subject/${subjectName.id}`} className="Subject">
                 <div className="Header">
                     {subjectName.name}
                 </div>
@@ -89,9 +90,9 @@ class studentStuff extends Component{
                     Grade
                 </div>
                 <div className="Options2">
-                    Record
+                    Your States
                 </div>
-            </div>
+            </Link >
         )
     }
     // after the com has moount fetch the user data
@@ -138,7 +139,7 @@ class studentStuff extends Component{
                     {this.state.Online? State : ErrorState}
                 </section>
                 <section className="Space">
-                    {this.state.Online? Space : ErrorSpace}
+                    {this.state.Online ? Space : ErrorSpace}
                 </section>
             </main>
         )

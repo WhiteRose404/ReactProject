@@ -1,27 +1,11 @@
 import React,{Component} from "react"
+import { NavLink } from "react-router-dom";
 import "./css/styles.css"
 class teacher extends Component{
     state = {
-        default: (
-        <div className="Container">
-            <div className="item">
-                Update the Ciruclum
-            </div>
-            <div className="item">
-                Publish Grades
-            </div>
-            <div className="item">
-                Create Account
-            </div>
-            <div className="item">
-                Add Content to the Ciruclum
-            </div>
-        </div>),
         custom: false
     }
     componentDidMount(){
-        const select = document.querySelector(".Container div:nth-child(3)");
-        select.addEventListener("click",this.adduser);
     }
     constructor(props){
         super();
@@ -83,7 +67,23 @@ class teacher extends Component{
         })
     }
     render(){
-        return (this.state.custom || this.state.default);
+        console.log("ok")
+        return (
+        <div className="Container">
+            <div className="item">
+                <NavLink to="updatecirculum">Update the Ciruclum</NavLink>
+            </div>
+            <div className="item">
+                <NavLink to="publishgrades">Publish Grades</NavLink>
+            </div>
+            <div className="item">
+                <NavLink to="createAccount">Create Account</NavLink>
+            </div>
+            <div className="item">
+                <NavLink to="content">Add Content to the Ciruclum</NavLink>
+            </div>
+        </div>
+    );
     }
 }
 export default teacher;

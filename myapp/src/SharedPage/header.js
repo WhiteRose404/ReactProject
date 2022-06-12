@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { NavLink } from "react-router-dom";
 import "./css/header.css"
 
 
@@ -33,15 +34,15 @@ class header extends Component{
             <header>
                 <ul className="wideScreen">
                     <li className="logo"><img src="https://www.lamsade.dauphine.fr/~isco/ISCO2018/sites/default/files/ensias-logo.png"/></li>
-                    <li><a href="school">School</a></li>
-                    <li><a href="">Drive</a></li>
-                    <li>Account</li>
+                    <li><NavLink to="School" className={({isActive})=>{ return isActive ? ".active .link" : ".link"}}>School</NavLink></li>
+                    <li><NavLink to="Drive" className={({isActive})=>{ return isActive ? ".active .link" : ".link"}}>Drive</NavLink></li>
+                    <li><NavLink to="Account" className={({isActive})=>{ return isActive ? ".active .link" : ".link"}}>Account</NavLink></li>
                 </ul>
                 <div className="smallScreen">
                     <img src="https://www.lamsade.dauphine.fr/~isco/ISCO2018/sites/default/files/ensias-logo.png"/>
                     <select>
-                        <option><a href="school">School</a></option>
-                        <option><a href="">Drive</a></option>
+                        <option><NavLink to="School" className={({isActive})=>{ return isActive ? ".active .link" : ".link"}}>School</NavLink></option>
+                        <option><NavLink to="Drive" className={({isActive})=>{ return isActive ? ".active .link" : ".link"}}>Drive</NavLink></option>
                         <option>Account</option>
                     </select>
                 </div>
