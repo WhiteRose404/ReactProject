@@ -1,16 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Navigate} from 'react-router-dom'
 
-function ProtectedRoute({cred,children}){
-    const Navigate = useNavigate();
-    let validate=()=>{
-        //check cred
-        console.log(cred)
-        cred.setToken({userID: 1})
-        return true
-    }
-    console.log(children)
-    if(validate()) return children;
-    Navigate("/");
+
+
+function ProtectedRoute({children,validate}){
+    console.log("in the kings room",validate);
+    //////Authenticate/////
+    //    the value of   //
+    // validate will give//
+    //     You access    //
+    ///////////////////////
+    if(validate) return children;
+    return <Navigate to="/" replace={true} />;
 }
 
 export default ProtectedRoute;

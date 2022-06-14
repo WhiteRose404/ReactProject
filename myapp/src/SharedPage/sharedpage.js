@@ -8,6 +8,8 @@ import "./css/styles.css"
 class header extends Component{
     constructor(props){
         super();
+        this.props = props;
+        console.log(props.token);
     }
     render(){
         return (
